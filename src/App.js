@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { useState } from 'react';
+import Dropdown from './components/dropdown/dropdown';
+import getOptions from './mock/data';
 
 function App() {
+  const [options, setOptions] = useState(getOptions);
+
+  const handleSelect = selectedOptions => { // set state after each selection
+    const newOptions = options.map(option => (
+      {
+        ...option, 
+        isSelected: selectedOptions
+          .map(selectedOption => selectedOption.value)
+          .includes(option.value)
+      }
+    ));
+
+    setOptions(newOptions);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="dropdownTitle"><b>Select an option</b></div>
+      <Dropdown
+        options={options}
+        optionSelect={handleSelect}/>
     </div>
   );
 }

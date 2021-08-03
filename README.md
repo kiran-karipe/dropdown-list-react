@@ -1,7 +1,7 @@
 # How to run the App
 
-1) Download the zip file.
-2) Expand the file by double clicking, where you can find the folder "dropdown-list-react-main".
+1) Download the zip file by clicking on Code and selecting Download ZIP.
+2) Expand the downloaded file by double clicking, where you can find the folder "dropdown-list-react-main".
 3) Open terminal, and go to folder.
 4) Run "npm install".
 5) Run "npm start"
